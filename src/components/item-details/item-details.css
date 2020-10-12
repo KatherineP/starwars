@@ -1,0 +1,22 @@
+.person-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-body {
+  margin-left: 2rem;
+}
+
+.person-details .person-image {
+  width: 30%;
+  height: 30%;
+  border-radius: 10px;
+}
+
+.person-details .list-group-item {
+  padding: 10px 15px;
+}
+
+.person-details .list-group-item .term{
+  margin-right: .5rem;
+}
