@@ -3,6 +3,11 @@
   flex-direction: row;
 }
 
+.person-details {
+  padding-top: 1rem;
+  margin: 1rem 4rem;
+}
+
 .card-body {
   margin-left: 2rem;
 }

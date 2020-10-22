@@ -2,6 +2,11 @@
   cursor: pointer;
 }
 
+.item-list {
+  margin: 1rem 4rem;
+  padding: 0;
+}
+
 .item-list .list-group-item:hover {
   background-color: #444;
 }

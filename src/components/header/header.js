@@ -1,23 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './header.css';
+import { Link } from 'react-router-dom';
 
-export default class Header extends Component {
-
-  render(){
-    return(
-      <div className="header d-flex">
-        <h3>
-          <a href="#/">Star DB</a>
-        </h3>
-        <div className="categories">
-          <button type="button" className="btn btn-link">People</button>
-          <button type="button" className="btn btn-link">Planets</button>
-          <button type="button" className="btn btn-link">Starships</button>
-        </div>
-      </div>
-
-    );
-  };
-
+const Header = ({ onServiceChange }) => {
+  return (
+    <div className="header d-flex">
+      <h3>
+        <Link to="/">
+          StarDB
+        </Link>
+      </h3>
+      <ul className="menu-list">
+        <li>
+          <Link to="/people/">People</Link>
+        </li>
+        <li>
+          <Link to="/planets/">Planets</Link>
+        </li>
+        <li>
+          <Link to="/starships/">Starships</Link>
+        </li>
+      </ul>
+    </div>
+  );
 };
 
+export default Header;

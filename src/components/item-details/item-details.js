@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import Spinner from '../spinner';
 import './item-details.css';
 
@@ -13,62 +13,43 @@ const Record = ({item, field, label}) => {
 
 export { Record };
 
-export default class ItemDetails extends Component {
+const ItemDetails = ({itemId, getData, getImageUrl, children}) =>{
 
-  state = {
-    item: null,
-    image: null,
-    loading: false
-  }
+  const [item, setItem] = useState(null);
+  const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  componentDidMount() {
-    this.getItemDetails();
-  }
-
-  componentDidUpdate(prevProps){
-    if (this.props.itemId !== prevProps.itemId){
-      this.getItemDetails();
-    }
-  }
-
-  getItemDetails() {
-    const { itemId, getData, getImageUrl } = this.props;
-
+  useEffect(() => {
     if(!itemId) {
       return;
     }
-    this.setState({loading: true});
+    setLoading(true);
 
     getData(itemId)
-    .then((item) => {
-      this.setState({ item,
-                      loading: false, 
-                      image: getImageUrl(item) 
-                    })
-    });
-  };
+    .then((newItem) => {
+      setItem(newItem);
+      setImage(getImageUrl(newItem));
+      setLoading(false);
+  });
+    }, [itemId, getData, getImageUrl]);
 
-  render() {
-    //this.foo.bar = 0;
+  if (!item && !loading) {
+    return <span>Select an item from a list</span>;
+  }
 
-    const { item, loading, image } = this.state;
-    
-    const spinner = loading ? <Spinner /> : null;
-    const hasData = !loading && item;
-    const content = hasData ? <PersonalDetails item={item} image={image} children={this.props.children} /> : null;
+  const hasData = !loading && item;
+  const content = hasData ? <PersonalDetails item={item} image={image} children={children} /> : null;
 
-      if(!item && !loading) {
-        return <span>Select an item from a list</span>;
-      }
-
-    return (
+  return (
+    // this.foo.bar = 0;
       <div className="person-details card">
-        { spinner }
+        { loading &&  <Spinner />}
         { content }
       </div>
-    )
-  }
+  )
 }
+
+export default ItemDetails;
 
 const PersonalDetails = ({ item, image, children }) => {
   const { name } = item;
