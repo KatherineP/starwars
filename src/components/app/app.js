@@ -7,7 +7,7 @@ import ErrorBoundary from '../error-boundary/error-boundary';
 import './app.css';
 import { PeoplePage, PlanetsPage, StarshipsPage } from '../pages';
 import SwapiService from '../../services/swapi-service';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 import { StarshipDetails } from '../sw-components';
 
 export default class App extends Component {
