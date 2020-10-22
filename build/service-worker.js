@@ -2,7 +2,7 @@
  * Welcome to your Workbox-powered service worker!
  *
  * You'll need to register this file in your web app and you should
- * disable https caching for this file too.
+ * disable HTTP caching for this file too.
  * See https://goo.gl/nhQhGp
  *
  * The rest of the code is auto-generated. Please don't update this file
@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.b47fa0f44ee86a35e591ad4eb92616f5.js"
+  "/precache-manifest.873bfc5ad60a4e30768de18be9b5d399.js"
 );
 
 self.addEventListener('message', (event) => {
