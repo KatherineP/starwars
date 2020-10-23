@@ -52,12 +52,14 @@ export { Record };
 // }
 
 // export default ItemDetails;
+
 export default class ItemDetails extends React.Component {
 
   state = {
     item: null,
     image: null,
     loading: false,
+    hasError: false
   }
 
   componentDidMount() {
@@ -77,29 +79,27 @@ export default class ItemDetails extends React.Component {
   updateItem() {
     const { itemId, getData, getImageUrl } = this.props;
 
-    if (!itemId) return this.setState({ item: null, image: null, hasError: false });
+    if (!itemId) return this.setState({ item: null, image: null});
 
     this.setState({ item: null, loading: true });
+    console.log(getData);
     getData(itemId)
       .then((item) => {
         this.setState({
           item,
           image: getImageUrl(item),
           loading: false,
-          hasError: false
         });
       })
       .catch((err) => {
         this.setState({          
-          hasError: true,
           loading: false
         });
       });
   }
 
   render() {
-    const { loading, item, image } = this.state;
-
+    const { loading, item, image} = this.state;
     const content = item ? <PersonalDetails item={item} image={image} children={this.props.children} /> : null;
     const spinner = loading ? <Spinner /> : null;
 
