@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { SwapiServiceContext } from '../swapi-service-context';
 import Header from '../header';
@@ -9,7 +8,6 @@ import { PeoplePage, PlanetsPage, StarshipsPage } from '../pages';
 import SwapiService from '../../services/swapi-service';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { StarshipDetails } from '../sw-components';
-
 export default class App extends Component {
 
   swapi = new SwapiService();

@@ -27,6 +27,7 @@ const ItemDetails = ({itemId, getData, getImageUrl, children}) =>{
 
     getData(itemId)
     .then((newItem) => {
+      console.log(newItem)
       setItem(newItem);
       setImage(getImageUrl(newItem));
       setLoading(false);
