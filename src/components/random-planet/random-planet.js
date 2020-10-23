@@ -4,7 +4,6 @@ import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 import useInterval from '@use-it/interval';
-//import PropTypes from 'prop-types';
 
 const swapi = new SwapiService();
 
@@ -24,14 +23,6 @@ const RandomPlanet = () => {
   useInterval(() => {
     setRandomId(Math.floor(Math.random() * 25 + 1))
   }, 10000);
-
-
-  // const updatePlanet = () => {
-  //   swapi
-  //   .getPlanet(randomId)
-  //   .then(onPlanetLoaded)
-  //   .catch(onError);
-  // };
 
   const onPlanetLoaded = (planet) => {
     setPlanet(planet);
