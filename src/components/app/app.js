@@ -6,7 +6,7 @@ import ErrorBoundary from '../error-boundary/error-boundary';
 import './app.css';
 import { PeoplePage, PlanetsPage, StarshipsPage } from '../pages';
 import SwapiService from '../../services/swapi-service';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { StarshipDetails } from '../sw-components';
 export default class App extends Component {
 
@@ -21,6 +21,7 @@ export default class App extends Component {
           <div className="stardb-app">
             <Header />
             <RandomPlanet/>
+            <Switch>
             <Route path="/" render={() => <h2>Welcome to StarDB</h2>} exact />
             <Route path="/people/:id?" component={PeoplePage} />
             <Route path="/planets" component={PlanetsPage} />
@@ -30,6 +31,7 @@ export default class App extends Component {
               return <StarshipDetails itemId={id}/>
             }} />
             <Redirect to="/" />
+            </Switch>
           </div>
           </BrowserRouter>
         </SwapiServiceContext.Provider>
