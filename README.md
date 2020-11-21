@@ -1,5 +1,5 @@
 'StarWars' is a study React project. Its web application to get info about things and heroes from Star Wars franchise.
-[Link to the App](https://katherinep.github.io/starwars/build)
+[Link to the App](https://katherinep.github.io/starwars/)
 
 ## Features:
 User can read info about Star Wars universe, like characters, starships and planets.
